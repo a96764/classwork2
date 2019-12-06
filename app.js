@@ -2,12 +2,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors')
+
+const config = require('./config')
+config.init()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products');
 
 var app = express();
-const cors = require('cors')
+
 app.use(cors())
 
 app.use(logger('dev'));
@@ -18,12 +23,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/:userId/products',
+  // a workaround express inability to use params in parent route
+  function(req, res, next) {
+    req.userId = req.params.userId;
+    next()
+  },productsRouter);
 
 module.exports = app;
-
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://0.0.0.0:27017/cs3051',
-{useNewUrlParser: true, useUnifiedTopology: true})
-
-const config = require('./config')
-config.init()

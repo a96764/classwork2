@@ -1,11 +1,5 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
-
 var app = require('../app');
-var debug = require('debug')('classwork2:server');
+var debug = require('debug')('node:server');
 var http = require('http');
 
 /**
