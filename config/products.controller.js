@@ -1,1 +1,1 @@
-exports.db='mongodb+srv://daevgoza:lala@cluster0-yjlwv.gcp.mongodb.net/test?retryWrites=true&w=majority'
+exports.db = 'mongodb+srv://daevgoza:TomerClass22@cluster0-yjlwv.gcp.mongodb.net/test?retryWrites=true&w=majority'
