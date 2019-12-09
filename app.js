@@ -9,7 +9,7 @@ config.init()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
+var programsRouter = require('./routes/programs');
 
 var app = express();
 
@@ -23,11 +23,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/:userId/products',
+app.use('/api/:userId/programs',
   // a workaround express inability to use params in parent route
   function(req, res, next) {
     req.userId = req.params.userId;
     next()
-  },productsRouter);
+  },programsRouter);
 
 module.exports = app;
