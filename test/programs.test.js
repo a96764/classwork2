@@ -4,17 +4,17 @@ const app = require('../app')
 const Program = require('../models/programs')
 
 let program1 = {
-    _id: '1',
+    _id: '0ddcfa78e38c7107015f35b6',
   name: 'Fitness',
   user: 'Tomer'
 }
 let program2 = {
-    _id: '2',
+    _id: '1ddcfa78e38c7107015f35b6',
   name: 'Relaxation',
   user: 'Daria'
 }
 let program3 = {
-    _id: '3',
+    _id: '2ddcfa78e38c7107015f35b6',
   name: 'Weight Loss',
   user: 'Kuki'
 }

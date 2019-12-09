@@ -5,31 +5,31 @@ const User = require('../models/user')
 
 
 let user1 = {
-    _id:'01',
+    _id:'0ddcfa78e38c7107015f35b6',
   name: 'Daria',
   age: '24',
   password: 'Daria'
 }
 let user2 = {
-    _id:'02',
+    _id:'1ddcfa78e38c7107015f35b6',
   name: 'Tomer',
   age: '00',
   password: 'Tomer'
 }
 let user3 = {
-    _id: '03',
+    _id: '2ddcfa78e38c7107015f35b6',
   name: 'Samuel',
   age: '45',
   password: 'Samuel'
 }
 let user4 = {
-    _id: '04',
+    _id: '3ddcfa78e38c7107015f35b6',
   name: 'Kuki',
   age: '68',
   password: 'Kuki'
 }
 let user5 = {
-    _id: '05',
+    _id: '4ddcfa78e38c7107015f35b6',
   name: 'Laura',
   age: '38',
   password: 'Laura'
