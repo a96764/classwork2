@@ -6,19 +6,18 @@ const Program = require('../models/programs')
 let program1 = {
     _id: '0ddcfa78e38c7107015f35b6',
   name: 'Fitness',
-  user: 'Tomer'
+  //user: 'Tomer'
 }
 let program2 = {
     _id: '1ddcfa78e38c7107015f35b6',
   name: 'Relaxation',
-  user: 'Daria'
+  //user: 'Daria'
 }
 let program3 = {
     _id: '2ddcfa78e38c7107015f35b6',
   name: 'Weight Loss',
-  user: 'Kuki'
+  //user: 'Kuki'
 }
-
 
 describe('Programs', () => {
   beforeEach(async function() {
@@ -85,6 +84,7 @@ describe('Programs', () => {
       })
   })
 })
+
 exports.init = async function() {
     try {
         await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
