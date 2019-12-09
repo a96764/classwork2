@@ -7,31 +7,31 @@ const User = require('../models/user')
 let user1 = {
     _id:'0ddcfa78e38c7107015f35b6',
   name: 'Daria',
-  age: '24',
+  email: 'daria@aup.edu',
   password: 'Daria'
 }
 let user2 = {
     _id:'1ddcfa78e38c7107015f35b6',
   name: 'Tomer',
-  age: '00',
+  email: 'tomer@aup.edu',
   password: 'Tomer'
 }
 let user3 = {
     _id: '2ddcfa78e38c7107015f35b6',
   name: 'Samuel',
-  age: '45',
+  email: 'samuel@aup.edu',
   password: 'Samuel'
 }
 let user4 = {
     _id: '3ddcfa78e38c7107015f35b6',
   name: 'Kuki',
-  age: '68',
+  email: 'kuki@aup.edu',
   password: 'Kuki'
 }
 let user5 = {
     _id: '4ddcfa78e38c7107015f35b6',
   name: 'Laura',
-  age: '38',
+  email: 'laura@aup.edu',
   password: 'Laura'
 }
 
