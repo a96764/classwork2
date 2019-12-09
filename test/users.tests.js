@@ -81,6 +81,10 @@ describe('Users', () => {
     it('should return all users', async () => {
         const res = await request(app)
             .get(`/api/${user1._id}/users`)
+            .get(`/api/${user2._id}/users`)
+            .get(`/api/${user3._id}/users`)
+            .get(`/api/${user4._id}/users`)
+            .get(`/api/${user5._id}/users`)
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Daria')
         expect(res.body).to.have.nested.property('data[1].name', 'Tomer')
