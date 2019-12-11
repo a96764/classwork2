@@ -31,9 +31,9 @@ describe('Programs', () => {
 
   });
   afterEach(async function() {
-    /*await Program.deleteOne({_id: program1._id})
+    await Program.deleteOne({_id: program1._id})
     await Program.deleteOne({_id: program2._id})
-    await Program.deleteOne({_id: program3._id})*/
+    await Program.deleteOne({_id: program3._id})
 	});
 
   describe('Getting products', () => {

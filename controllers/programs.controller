@@ -1,10 +1,11 @@
+const Program = require('../models/programs')
 const User = require('../models/user')
 const ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports.getAll = async function(req, res) {
     try {
-      let users = await Product.find({user: new ObjectId(req.params.userId)})
-      res.json({data: users})
+      let programs = await Program.find({user: new ObjectId(req.params.userId)})
+      res.json({data: programs})
     } catch (error) {
       res.json({error: error})
     }
@@ -12,8 +13,8 @@ module.exports.getAll = async function(req, res) {
 
 module.exports.getOne = async function(req, res) {
   try {
-    let user = await User.findOne({user: new ObjectId(req.params.userId)})
-    res.json({data: user})
+    let program = await Program.findOne({user: new ObjectId(req.params.userId), _id: new ObjectId(req.params.programId)})
+    res.json({data: program})
   } catch (error) {
     res.end({error: error})
   }
@@ -21,11 +22,10 @@ module.exports.getOne = async function(req, res) {
 
 module.exports.create = async function(req, res) {
         try {
-            console.log(res.body)
-            let user = new Product(req.body)
-            let newUser = await user.save()
-            res.statusCode = 201
-            res.json({data: {id: newUser._id, message: "Created ok"}})
+  let program = new Program(req.body)
+  let newProgram = await program.save()
+  res.statusCode = 201
+  res.json({data: {id: newProgram._id, message: "Created ok"}})
       } catch (error) {
         console.log(error)
         res.end({error: error})

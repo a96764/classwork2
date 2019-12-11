@@ -6,9 +6,9 @@ const User = require('../models/user')
 
 let user = {
   _id: '3ddcfa78e38c7107015f35b6',
-  name: 'User',
-  password: 'pass',
-  email: 'a@b.c'
+  name: 'Daria',
+  password: 'Daria',
+  email: 'daria@aup.edu'
 }
 let program1 = {
   _id: '5ddcfa78e38c7107015f35b6',
@@ -72,3 +72,11 @@ describe('Programs', () => {
       })
   })
 })
+
+exports.init = async function() {
+    try {
+        await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
+    } catch (error) {
+        console.log(error)
+    }
+}
