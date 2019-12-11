@@ -4,7 +4,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 exports.createUser =  function(req, res){
     User.findOne({email:req.body.email}, async (err,user)=> {
         if (user) {
-            return res.json(
+            res.json(
                 {data:{ message:"User already exists"}}
             )
         }
