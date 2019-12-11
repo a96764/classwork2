@@ -1,33 +1,44 @@
 const User = require('../models/user')
 const ObjectId = require('mongoose').Types.ObjectId;
 
-module.exports.getAll = async function(req, res) {
-    try {
-      let users = await Product.find({user: new ObjectId(req.params.userId)})
-      res.json({data: users})
-    } catch (error) {
-      res.json({error: error})
-    }
+exports.createUser =  function(req, res){
+    User.findOne({email:req.body.email}, async (err,user)=> {
+        if (user) {
+            return res.json(
+                {data:{ message:"User already exists"}}
+            )
+        }
+        else{
+            try {
+                let user = new User(req.body)
+                let newUser = await user.save()
+                res.statusCode = 201
+            } catch (error) {
+                res.end({error: error})
+            }
+
+        }
+    })
 }
 
-module.exports.getOne = async function(req, res) {
-  try {
-    let user = await User.findOne({user: new ObjectId(req.params.userId)})
-    res.json({data: user})
-  } catch (error) {
-    res.end({error: error})
-  }
-}
+    exports.login = async function(req, res){
+        let user = await User.findOne({email:req.body.email})
+        if (user) {
+            if(req.body.password==user.password){
+                
+                return res.json(
+                    {data:{ id:user._id}}
+                )
 
-module.exports.create = async function(req, res) {
-        try {
-            console.log(res.body)
-            let user = new Product(req.body)
-            let newUser = await user.save()
-            res.statusCode = 201
-            res.json({data: {id: newUser._id, message: "Created ok"}})
-      } catch (error) {
-        console.log(error)
-        res.end({error: error})
+            }
+            
+        }
+        else{
+
+            return (res.json(
+                {data: {mesage: "Wrong email or password"}}
+            ) )
+
+        }
+        
     }
-}
