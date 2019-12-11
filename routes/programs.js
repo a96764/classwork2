@@ -4,8 +4,8 @@ var router = express.Router();
 
 const controller = require('../controllers/programs.controller')
 
-router.get('/:userId/programs/', controller.getAll)
-router.get('/:userId/programs/:programId', controller.getOne)
-router.post('/:userId/programs/', controller.create)
+router.get('', controller.getAll)
+router.get('', controller.getOne)
+router.post('', controller.create)
 
 module.exports = router;

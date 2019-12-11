@@ -4,17 +4,17 @@ const app = require('../app')
 const Program = require('../models/programs')
 
 let program1 = {
-    _id: '0ddcfa78e38c7107015f35b6',
+    _id: '1deafa78e38c7107015f35b6',
   name: 'Fitness',
   //user: 'Tomer'
 }
 let program2 = {
-    _id: '1ddcfa78e38c7107015f35b6',
+    _id: '2decfa78e38c7107015f35b6',
   name: 'Relaxation',
   //user: 'Daria'
 }
 let program3 = {
-    _id: '2ddcfa78e38c7107015f35b6',
+    _id: '3decfa78e38c7107015f35b6',
   name: 'Weight Loss',
   //user: 'Kuki'
 }
@@ -31,9 +31,9 @@ describe('Programs', () => {
 
   });
   afterEach(async function() {
-    await Program.deleteOne({_id: program1._id})
+    /*await Program.deleteOne({_id: program1._id})
     await Program.deleteOne({_id: program2._id})
-    await Program.deleteOne({_id: program3._id})
+    await Program.deleteOne({_id: program3._id})*/
 	});
 
   describe('Getting products', () => {
@@ -53,7 +53,7 @@ describe('Programs', () => {
 
     it('should return all programs', async () => {
         const res = await request(app)
-            .get(`/api/${product1._id}/programs`)
+            .get(`/api/${program._id}/programs`)
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Fitness')
         expect(res.body).to.have.nested.property('data[1].name', 'Relaxation')
@@ -85,9 +85,9 @@ describe('Programs', () => {
   })
 })
 
-exports.init = async function() {
+ exports.init = async function() {
     try {
-        await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
+        await mongoose.connect(env.db, {useNewUrlParser: true});
     } catch (error) {
         console.log(error)
     }

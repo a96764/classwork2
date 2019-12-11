@@ -21,6 +21,7 @@ module.exports.getOne = async function(req, res) {
 
 module.exports.create = async function(req, res) {
         try {
+  console.log(res.body)
   let user = new Product(req.body)
   let newUser = await user.save()
   res.statusCode = 201

@@ -1,4 +1,4 @@
-const Product = require('../models/programs')
+const Program = require('../models/programs')
 const ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports.getAll = async function(req, res) {
@@ -21,7 +21,7 @@ module.exports.getOne = async function(req, res) {
 
 module.exports.create = async function(req, res) {
         try {
-  let progarm = new Program(req.body)
+  let program = new Program(req.body)
   let newProgram = await program.save()
   res.statusCode = 201
   res.json({data: {id: newProgram._id, message: "Created ok"}})

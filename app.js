@@ -23,11 +23,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/:userId/programs',
+app.use('/api/:userId/programs',programsRouter)
   // a workaround express inability to use params in parent route
-  function(req, res, next) {
+  /* function(req, res, next) {
     req.userId = req.params.userId;
     next()
-  },programsRouter);
+  },programsRouter); */
 
 module.exports = app;
