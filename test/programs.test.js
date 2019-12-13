@@ -12,12 +12,12 @@ let user = {
 }
 let program1 = {
   _id: '5ddcfa78e38c7107015f35b6',
-  name: "Printer",
+  name: "Fitness",
   user: user
 }
 let program2 = {
   _id: '4ddcfa78e38c7107015f35b6',
-  name: "Screen",
+  name: "Yoga",
   user: user
 }
 
@@ -46,8 +46,8 @@ describe('Programs', () => {
         const res = await request(app)
             .get(`/api/${user._id}/programs`)
         expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data[0].name', 'Printer')
-        expect(res.body).to.have.nested.property('data[1].name', 'Screen')
+        expect(res.body).to.have.nested.property('data[0].name', 'Fitness')
+        expect(res.body).to.have.nested.property('data[1].name', 'Yoga')
     })
   })
 
@@ -68,7 +68,7 @@ describe('Programs', () => {
             .get(`/api/${user._id}/programs/${id}`)
           console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(200)
-          expect(res.body).to.have.nested.property('data.name', 'Printer')
+          expect(res.body).to.have.nested.property('data.name', 'Fitness')
       })
   })
 })
