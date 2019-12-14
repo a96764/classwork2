@@ -30,7 +30,7 @@ exports.createUser =  function(req, res){
                 
                 return res.json(
                     {data:{ id:user._id,
-                            name:"bla"}}
+                            name:user.name}}
                 )
 
             }
