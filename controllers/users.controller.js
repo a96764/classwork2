@@ -26,6 +26,8 @@ exports.createUser =  async function(req, res){
 }
 
     exports.login = async function(req, res){
+            console.log(req.body)
+
         let user = await User.findOne({email:req.body.email})
 
         if (user) {
@@ -36,15 +38,18 @@ exports.createUser =  async function(req, res){
                     {data:{ id:user._id,
                             name:name}}
                 )
-
+            }else{
+                res.json(
+                {data: {mesage: "Wrong email or password"}}
+             )
             }
             
         }
         else{
 
-            (res.json(
+            res.json(
                 {data: {mesage: "Wrong email or password"}}
-            ) )
+             )
 
         }
         
