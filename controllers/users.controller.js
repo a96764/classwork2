@@ -9,7 +9,7 @@ exports.createUser =  function(req, res){
             res.json({data:{message:'érror with the database'}})
         }
 
-        else if (user!=null) {
+        else if (user==null) {
 
             res.json(
                 {data:{ message:"User already exists"}}
