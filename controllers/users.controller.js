@@ -25,32 +25,34 @@ exports.createUser =  async function(req, res){
     
 }
 
-    exports.login = async function(req, res){
-            console.log(req.body)
+exports.login = async function(req, res){
+    console.log(req.body)
 
-        let user = await User.findOne({email:req.body.email})
+    let user = await User.findOne({email:req.body.email})
 
-        if (user) {
-            if(req.body.password==user.password){
-                console.log(user)
-                let name = user.name
-                res.json(
-                    {data:{ id:user._id,
-                            name:name}}
-                )
-            }else{
-                res.json(
-                {data: {mesage: "Wrong email or password"}}
-             )
-            }
-            
-        }
-        else{
-
+    if (user) {
+        if(req.body.password==user.password){
+            console.log(user)
+            let name = user.name
+            res.statusCode=200
             res.json(
-                {data: {mesage: "Wrong email or password"}}
-             )
-
+                {data:{ id:user._id,
+                        name:name}}
+            )
+        }else{
+            res.statusCode = 404
+            res.json(
+            {data: {mesage: "Wrong email or password"}}
+            )
         }
         
     }
+    else{
+        res.statusCode = 404
+        res.json(
+            {data: {mesage: "Wrong email or password"}}
+            )
+
+    }
+    
+}
