@@ -29,7 +29,8 @@ exports.createUser =  function(req, res){
             if(req.body.password==user.password){
                 
                 return res.json(
-                    {data:{ id:user._id,name:user.name}}
+                    {data:{ id:user._id,
+                            name:"bla"}}
                 )
 
             }
