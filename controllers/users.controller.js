@@ -36,10 +36,11 @@ exports.createUser =  function(req, res){
 
         else if (user) {
             if(req.body.password==user.password){
-                
+                console.log(user)
+                let name = user.name
                 return res.json(
                     {data:{ id:user._id,
-                            name:user.name}}
+                            name:name}}
                 )
 
             }
