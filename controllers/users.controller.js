@@ -40,7 +40,6 @@ exports.login = async function(req, res){
                         name:name}}
             )
         }else{
-            res.statusCode = 404
             res.json(
             {data: {mesage: "Wrong email or password"}}
             )
@@ -48,7 +47,6 @@ exports.login = async function(req, res){
         
     }
     else{
-        res.statusCode = 404
         res.json(
             {data: {mesage: "Wrong email or password"}}
             )
