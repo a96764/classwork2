@@ -32,7 +32,7 @@ exports.createUser =  async function(req, res){
             if(req.body.password==user.password){
                 console.log(user)
                 let name = user.name
-                return res.json(
+                res.json(
                     {data:{ id:user._id,
                             name:name}}
                 )
@@ -42,7 +42,7 @@ exports.createUser =  async function(req, res){
         }
         else{
 
-            return (res.json(
+            (res.json(
                 {data: {mesage: "Wrong email or password"}}
             ) )
 
