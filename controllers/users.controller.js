@@ -1,15 +1,11 @@
 const User = require('../models/user')
 const ObjectId = require('mongoose').Types.ObjectId;
 
-exports.createUser =  function(req, res){
+exports.createUser =  async function(req, res){
     console.log(req.body)
     
-    User.findOne({email:req.body.email}, async (err,user)=> {
-        if(err){
-            res.json({data:{message:'érror with the database'}})
-        }
-
-        else if (user==null) {
+    let user = await User.findOne({email:req.body.email}) 
+        if (user!=null) {
 
             res.json(
                 {data:{ message:"User already exists"}}
@@ -25,16 +21,13 @@ exports.createUser =  function(req, res){
             }
 
         }
-    })
+    
 }
 
     exports.login = async function(req, res){
         let user = await User.findOne({email:req.body.email})
-         if(err){
-            res.json({data:{message:'érror with the database'}})
-        }
 
-        else if (user) {
+        if (user) {
             if(req.body.password==user.password){
                 console.log(user)
                 let name = user.name
